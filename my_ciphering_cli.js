@@ -1,32 +1,9 @@
-const { Transform, pipeline } = require('stream');
+const { pipeline } = require('stream');
 const { stderr } = require('process');
-const { config, input, output } = require('./modules/getterArgs');
-const atbash = require('./modules/athash');
-const { shiftString } = require('./modules/shiftString');
-const { checkCodeFlag } = require('./modules/checkCodeFlag');
+const { input, output } = require('./modules/getterArgs');
 const { readFromFile } = require('./modules/readFromFile');
 const { writeToFile } = require('./modules/writeToFile');
-
-const transform = new Transform({
-  transform(chunk, encoding, callback) {
-    let result = chunk.toString().trim();
-    config.split('-').forEach((cipherType) => {
-      if (cipherType.includes('A')) {
-        cipherType.split('').forEach(() => {
-          result = atbash.crypt(result);
-        });
-      }
-      if (cipherType.includes('R')) {
-        result = shiftString(result, checkCodeFlag(cipherType));
-      }
-      if (cipherType.includes('C')) {
-        result = shiftString(result, checkCodeFlag(cipherType));
-      }
-    });
-
-    callback(null, `${result}\n`);
-  },
-});
+const { transform } = require('./modules/transform');
 
 async function returnCodeResult() {
   pipeline(
