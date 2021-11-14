@@ -1,6 +1,7 @@
 const { mod } = require('./mod');
 
-function shiftString(msg, key) {
+function shiftString(msg, stingKey) {
+  const key = parseInt(stingKey, 10);
   let encMsg = '';
 
   for (let i = 0; i < msg.length; i++) {
