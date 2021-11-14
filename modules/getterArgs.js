@@ -63,6 +63,12 @@ if (!args.length) {
   process.exit(1);
 }
 
+const duplicates = args.filter((item, index) => args.indexOf(item) !== index);
+if (duplicates.length) {
+  stderr.write(`Args have duplicates: ${duplicates.join(', ')}\n`);
+  process.exit(1);
+}
+
 const parsedParams = {};
 
 args.forEach((val, index) => {
