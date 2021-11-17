@@ -1,5 +1,16 @@
 # Ciphering CLI Tool
 
+В спешке , с последним комитом, смломал возможность писать из файла в файл.
+Остальные выводы работают.
+Если удалить лишний ненужный код в главном файле, то заработает всё :)
+Вот "паразит":
+```
+.then(() => {
+  if (input && output) {
+    process.exit(1);
+  }
+```
+
 ## That CLI tool for encode and decode a text by 3 substitution ciphers:
 * [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 * [Atbash cipher](https://en.wikipedia.org/wiki/Atbash)
