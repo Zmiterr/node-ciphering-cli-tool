@@ -11,7 +11,7 @@ const readFromFile = async () => {
       return fs.createReadStream(path.resolve(input));
     } catch (err) {
       process.stderr.write(`File ${input} doesn't exist!\n`);
-      process.exit(0);
+      process.exit(1);
     }
   }
 

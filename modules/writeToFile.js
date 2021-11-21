@@ -11,7 +11,7 @@ const writeToFile = async () => {
       return fs.createWriteStream(path.resolve(output), { flags: 'a' });
     } catch (err) {
       process.stderr.write(`File ${output} doesn't exist!\n`);
-      process.exit(0);
+      process.exit(1);
     }
   }
 
