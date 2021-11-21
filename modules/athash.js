@@ -21,11 +21,11 @@ function crypt(text) {
       const lower = text[i].toLowerCase();
       index = fixedKey.indexOf(lower);
 
-      if (index < 0 && index >= -27) {
-        reversedIndex = index * (-1);
-      } else {
+      // if (index < 0 && index >= -27) {
+        // reversedIndex = index * (-1);
+      // } else {
         reversedIndex = index;
-      }
+      // }
 
       let tempIndex = reversedIndex - 1 - 24;
       if (tempIndex < 0) {
@@ -44,11 +44,11 @@ function crypt(text) {
       const lower = text[i].toLowerCase();
       index = fixedKey.indexOf(lower);
 
-      if (index < 0 && index >= -27) {
-        reversedIndex = index * (-1);
-      } else {
+      // if (index < 0 && index >= -27) {
+      //   // reversedIndex = index * (-1);
+      // } else {
         reversedIndex = index;
-      }
+      // }
 
       let tempIndex = reversedIndex - 1 - 24;
       if (tempIndex < 0) {
